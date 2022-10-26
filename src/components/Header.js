@@ -26,6 +26,9 @@ const Header = () => {
             >
               Courses
             </Link>
+            <Link className="text-white me-3 text-decoration-none" to="/faq">
+              FAQ
+            </Link>
             <Link className="text-white me-3 text-decoration-none" to="/blog">
               Blog
             </Link>
