@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
+import educine from "../../src/educine.png";
 
 const Header = () => {
   return (
@@ -10,7 +11,7 @@ const Header = () => {
       <Container>
         <Navbar.Brand>
           <Link to="/" className="text-white text-decoration-none fw-bolder">
-            Educine
+            <img src={educine} alt="" /> Educine
           </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
