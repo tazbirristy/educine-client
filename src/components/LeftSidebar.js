@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import "./LeftSidebar.module.css";
 
 const LeftSidebar = () => {
   const [courses, setCourses] = useState([]);
@@ -13,8 +14,13 @@ const LeftSidebar = () => {
     <div>
       <h3 className="text-primary mb-3 mt-3">All Categories</h3>
       {courses.map((category) => (
-        <p key={category.id}>
-          <Link>{category.name}</Link>
+        <p className="w-100 p-3 bg-primary rounded-2" key={category.id}>
+          <Link
+            className=" text-white text-decoration-none "
+            to={`/category/${category.id}`}
+          >
+            {category.name}
+          </Link>
         </p>
       ))}
     </div>
