@@ -1,11 +1,28 @@
 import React from "react";
+import { useContext } from "react";
+import { Image } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import toast from "react-hot-toast";
+import { FaUserGraduate } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import educine from "../../src/educine.png";
+import { AuthContext } from "./../contexts/AuthProvider";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        toast.success("LoggedOut Successfully");
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        toast.error(errorMessage);
+      });
+  };
   return (
     <Navbar bg="primary" expand="lg">
       <Container>
@@ -32,9 +49,43 @@ const Header = () => {
             <Link className="text-white me-3 text-decoration-none" to="/blog">
               Blog
             </Link>
-            <Link className="text-white me-3 text-decoration-none" to="/login">
-              Login
-            </Link>
+            <>
+              {user?.uid ? (
+                <>
+                  <Link to="/">
+                    <button
+                      onClick={handleLogOut}
+                      className="border-0 text-white ms-1 bg-transparent"
+                    >
+                      logout
+                    </button>
+                  </Link>
+                  <>
+                    {user?.photoURL ? (
+                      <Image
+                        roundedCircle
+                        title={user.displayName}
+                        referrerPolicy="no-referrer"
+                        src={user?.photoURL}
+                        style={{
+                          height: "30px",
+                          width: "30px",
+                          marginLeft: "10px",
+                        }}
+                      ></Image>
+                    ) : (
+                      <FaUserGraduate style={{ fontSize: "30px" }} />
+                    )}
+                  </>
+                </>
+              ) : (
+                <>
+                  <Link className="text-decoration-none text-white" to="/login">
+                    Login
+                  </Link>
+                </>
+              )}
+            </>
           </Nav>
         </Navbar.Collapse>
       </Container>

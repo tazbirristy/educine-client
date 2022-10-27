@@ -9,7 +9,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/";
-  const { googleProviderLogin, githubProviderLogin, signIn } =
+  const { googleProviderLogin, githubProviderLogin, signIn, resetPassword } =
     useContext(AuthContext);
   const [userEmail, setUserEmail] = useState("");
 
@@ -67,11 +67,20 @@ const Login = () => {
         toast.error(errorMessage);
       });
   };
+  // forget password
+  const handleResetPassword = () => {
+    resetPassword(userEmail)
+      .then(() => {
+        toast.success("Please check your email to Reset Password");
+      })
+      .catch((error) => toast.error(error.message));
+  };
   return (
     <div className="w-50 justify-content-center mx-auto">
       <h1 className="text-center text-primary mt-3">Please LogIn!!!</h1>
       <form onSubmit={handleLogIn} className="m-3">
         <MDBInput
+          onBlur={(event) => setUserEmail(event.target.value)}
           className="mb-4"
           type="email"
           id="form2Example1"
@@ -90,7 +99,7 @@ const Login = () => {
 
         <MDBRow className="mb-4">
           <MDBCol>
-            <a href="#!">Forgot password?</a>
+            <button onClick={handleResetPassword}>Forgot password?</button>
           </MDBCol>
         </MDBRow>
 
