@@ -93,7 +93,7 @@ const Header = () => {
             </>
             <button
               onClick={handleToggoleBtn}
-              className={`border-0 rounded-circle ms-4 text-white p-2 ${
+              className={`border-0 rounded ms-4 text-white p-2 ${
                 navToggle === false ? "bg-dark" : "bg-primary"
               }`}
             >
