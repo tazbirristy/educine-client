@@ -15,7 +15,7 @@ This Projects was created with the help of react-bootstrap, bootstrap, react-mdb
 
 ## Live Link
 
-Hosted in Firebase ->[Live Link](https://teachza-e0177.web.app/)
+Hosted in Firebase ->[Live Link](https://educine-9f86e.web.app/)
 
 ## Context API
 
