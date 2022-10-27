@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Blog from "../components/Blog";
 import Category from "../components/Category";
+import Checkout from "../components/Checkout";
 import CourseDetails from "../components/CourseDetails";
 import Courses from "../components/Courses";
 import ErrorPage from "../components/ErrorPage";
@@ -37,6 +38,14 @@ export const router = createBrowserRouter([
       {
         path: "/courses/:id",
         element: <CourseDetails></CourseDetails>,
+        loader: ({ params }) =>
+          fetch(
+            `https://educine-server-tazbirristy.vercel.app/courses/${params.id}`
+          ),
+      },
+      {
+        path: "/premium/:id",
+        element: <Checkout></Checkout>,
         loader: ({ params }) =>
           fetch(
             `https://educine-server-tazbirristy.vercel.app/courses/${params.id}`

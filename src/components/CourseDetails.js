@@ -52,7 +52,7 @@ const CourseDetails = () => {
           <MDBCardText>{details}</MDBCardText>
           <button
             href="#"
-            className="mb-4 bg-success rounded-2 p-2 text-white border-0"
+            className="mb-4 bg-primary rounded-2 p-2 text-white border-0"
           >
             <Link
               className="text-decoration-none text-white"

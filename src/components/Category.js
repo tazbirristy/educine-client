@@ -15,7 +15,7 @@ const Category = () => {
             <LeftSidebar></LeftSidebar>
           </Col>
           <Col lg="9">
-            <h2 className="text-center text-success fw-bold">
+            <h2 className="text-center text-warning fw-bold">
               All Courses Of {categoryCourses[0].category_name}
             </h2>
             <MDBRow style={{ rowGap: 20 }} className="mb-5">
