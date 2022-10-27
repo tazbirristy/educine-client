@@ -3,6 +3,7 @@ import { createContext } from "react";
 import {
   createUserWithEmailAndPassword,
   getAuth,
+  sendEmailVerification,
   updateProfile,
 } from "firebase/auth";
 import app from "./../firebase/firebase.config";
@@ -26,7 +27,18 @@ const AuthProvider = ({ children }) => {
     return updateProfile(auth.currentUser, profile);
   };
 
-  const authInfo = { user, loading, createUser, updateUserProfile };
+  // email verification
+  const verifyEmail = () => {
+    return sendEmailVerification(auth.currentUser);
+  };
+
+  const authInfo = {
+    user,
+    loading,
+    createUser,
+    updateUserProfile,
+    verifyEmail,
+  };
   return (
     <div>
       <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

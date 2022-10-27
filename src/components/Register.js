@@ -6,7 +6,8 @@ import { AuthContext } from "./../contexts/AuthProvider";
 import toast from "react-hot-toast";
 
 const Register = () => {
-  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const { createUser, updateUserProfile, verifyEmail } =
+    useContext(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,6 +24,7 @@ const Register = () => {
         console.log(user);
         form.reset();
         handleUpdateUserProfile(name, photoURL);
+        handleEmailVerification();
         toast.success(
           "Successfully account created!!! Check your email, and verify before login..."
         );
@@ -39,6 +41,12 @@ const Register = () => {
       photoURL: photoURL,
     };
     updateUserProfile(profile)
+      .then(() => {})
+      .catch((error) => console.error(error));
+  };
+  // email verification
+  const handleEmailVerification = () => {
+    verifyEmail()
       .then(() => {})
       .catch((error) => console.error(error));
   };
