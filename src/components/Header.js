@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { useContext } from "react";
 import { Image } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
@@ -12,6 +13,7 @@ import { AuthContext } from "./../contexts/AuthProvider";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [navToggle, setnavToggle] = useState(false);
   console.log(user);
   const handleLogOut = () => {
     logOut()
@@ -23,8 +25,11 @@ const Header = () => {
         toast.error(errorMessage);
       });
   };
+  const handleToggoleBtn = () => {
+    setnavToggle(!navToggle);
+  };
   return (
-    <Navbar bg="primary" expand="lg">
+    <Navbar bg={`${navToggle === true ? "dark" : "primary"}`} expand="lg">
       <Container>
         <Navbar.Brand>
           <Link to="/" className="text-white text-decoration-none fw-bolder">
@@ -86,6 +91,14 @@ const Header = () => {
                 </>
               )}
             </>
+            <button
+              onClick={handleToggoleBtn}
+              className={`border-0 rounded-circle ms-4 text-white p-2 ${
+                navToggle === false ? "bg-dark" : "bg-primary"
+              }`}
+            >
+              Toggle
+            </button>
           </Nav>
         </Navbar.Collapse>
       </Container>
