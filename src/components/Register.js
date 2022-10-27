@@ -1,13 +1,21 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { MDBInput, MDBRow, MDBIcon } from "mdb-react-ui-kit";
 import { Button } from "react-bootstrap";
 import { AuthContext } from "./../contexts/AuthProvider";
 import toast from "react-hot-toast";
 
 const Register = () => {
-  const { createUser, updateUserProfile, verifyEmail } =
-    useContext(AuthContext);
+  const {
+    createUser,
+    updateUserProfile,
+    verifyEmail,
+    googleProviderLogin,
+    githubProviderLogin,
+  } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -49,6 +57,37 @@ const Register = () => {
     verifyEmail()
       .then(() => {})
       .catch((error) => console.error(error));
+  };
+  // sign in with google
+  const handleGoogleSignIn = () => {
+    googleProviderLogin()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        toast.success("LoggedIn successfully");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.error(error);
+        const errorMessage = error.message;
+        toast.error(errorMessage);
+      });
+  };
+
+  // Sign in with github
+  const handleGithubSignIn = () => {
+    githubProviderLogin()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        toast.success("LoggedIn successfully");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.error(error);
+        const errorMessage = error.message;
+        toast.error(errorMessage);
+      });
   };
 
   return (
@@ -99,11 +138,11 @@ const Register = () => {
           </p>
           <p>or sign up with:</p>
 
-          <Button floating className="mx-1">
+          <Button onClick={handleGoogleSignIn} floating className="mx-1">
             <MDBIcon fab icon="google" />
           </Button>
 
-          <Button floating className="mx-1">
+          <Button onClick={handleGithubSignIn} floating className="mx-1">
             <MDBIcon fab icon="github" />
           </Button>
         </div>
