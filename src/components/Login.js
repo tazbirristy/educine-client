@@ -1,18 +1,82 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { MDBInput, MDBCol, MDBRow, MDBBtn, MDBIcon } from "mdb-react-ui-kit";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import { AuthContext } from "./../contexts/AuthProvider";
+import toast from "react-hot-toast";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
+  const { googleProviderLogin, githubProviderLogin, signIn } =
+    useContext(AuthContext);
+  const [userEmail, setUserEmail] = useState("");
+
+  // email & password
+  const handleLogIn = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+
+    signIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        form.reset();
+        toast.success("LoggedIn successfully");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.error(error);
+        const errorMessage = error.message;
+        toast.error(errorMessage);
+      });
+  };
+
+  // google sign in
+  const handleGoogleSignIn = () => {
+    googleProviderLogin()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        toast.success("LoggedIn successfully");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.error(error);
+        const errorMessage = error.message;
+        toast.error(errorMessage);
+      });
+  };
+
+  // github Sign in
+  const handleGithubSignIn = () => {
+    githubProviderLogin()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        toast.success("LoggedIn successfully");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.error(error);
+        const errorMessage = error.message;
+        toast.error(errorMessage);
+      });
+  };
   return (
     <div className="w-50 justify-content-center mx-auto">
       <h1 className="text-center text-primary mt-3">Please LogIn!!!</h1>
-      <form className="m-3">
+      <form onSubmit={handleLogIn} className="m-3">
         <MDBInput
           className="mb-4"
           type="email"
           id="form2Example1"
           label="Email address"
+          name="email"
           placeholder="Enter Your Email"
         />
         <MDBInput
@@ -20,6 +84,7 @@ const Login = () => {
           type="password"
           id="form2Example2"
           label="Password"
+          name="password"
           placeholder="Enter Your Password"
         />
 
@@ -39,11 +104,11 @@ const Login = () => {
           </p>
           <p>or SignIn with:</p>
 
-          <button floating className="mx-1">
+          <button onClick={handleGoogleSignIn} floating className="mx-1">
             <MDBIcon fab icon="google" />
           </button>
 
-          <button floating className="mx-1">
+          <button onClick={handleGithubSignIn} floating className="mx-1">
             <MDBIcon fab icon="github" />
           </button>
         </div>
