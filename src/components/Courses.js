@@ -3,6 +3,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import { useLoaderData } from "react-router-dom";
 import LeftSidebar from "./LeftSidebar";
 import ShortDetail from "./ShortDetail";
+import { MDBRow } from "mdb-react-ui-kit";
 
 const Courses = () => {
   const courses = useLoaderData();
@@ -15,11 +16,11 @@ const Courses = () => {
           </Col>
           <Col lg="9">
             <h3>Preview of Our Courses</h3>
-            <Row>
+            <MDBRow style={{ rowGap: 20 }}>
               {courses.map((course) => (
                 <ShortDetail key={course._id} course={course}></ShortDetail>
               ))}
-            </Row>
+            </MDBRow>
           </Col>
         </Row>
       </Container>
