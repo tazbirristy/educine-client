@@ -27,6 +27,10 @@ export const router = createBrowserRouter([
       {
         path: "/category/:id",
         element: <Category></Category>,
+        loader: ({ params }) =>
+          fetch(
+            `https://educine-server-tazbirristy.vercel.app/category/${params.id}`
+          ),
       },
       {
         path: "/courses/:id",
