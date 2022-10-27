@@ -39,13 +39,13 @@ const Login = () => {
           </p>
           <p>or SignIn with:</p>
 
-          <Button floating className="mx-1">
+          <button floating className="mx-1">
             <MDBIcon fab icon="google" />
-          </Button>
+          </button>
 
-          <Button floating className="mx-1">
+          <button floating className="mx-1">
             <MDBIcon fab icon="github" />
-          </Button>
+          </button>
         </div>
       </form>
     </div>
