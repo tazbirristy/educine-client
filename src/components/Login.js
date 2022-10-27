@@ -84,22 +84,27 @@ const Login = () => {
           className="mb-4"
           type="email"
           id="form2Example1"
-          label="Email address"
           name="email"
           placeholder="Enter Your Email"
+          required
         />
         <MDBInput
           className="mb-4"
           type="password"
           id="form2Example2"
-          label="Password"
           name="password"
           placeholder="Enter Your Password"
+          required
         />
 
         <MDBRow className="mb-4">
           <MDBCol>
-            <button onClick={handleResetPassword}>Forgot password?</button>
+            <button
+              className="bg-primary rounded-2 text-white"
+              onClick={handleResetPassword}
+            >
+              Forgot password?
+            </button>
           </MDBCol>
         </MDBRow>
 
@@ -113,11 +118,19 @@ const Login = () => {
           </p>
           <p>or SignIn with:</p>
 
-          <button onClick={handleGoogleSignIn} floating className="mx-1">
+          <button
+            onClick={handleGoogleSignIn}
+            floating
+            className="mx-1 bg-primary"
+          >
             <MDBIcon fab icon="google" />
           </button>
 
-          <button onClick={handleGithubSignIn} floating className="mx-1">
+          <button
+            onClick={handleGithubSignIn}
+            floating
+            className="mx-1 bg-primary"
+          >
             <MDBIcon fab icon="github" />
           </button>
         </div>

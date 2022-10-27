@@ -7,6 +7,8 @@ import {
   MDBIcon,
   MDBBtn,
 } from "mdb-react-ui-kit";
+import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 const Footer = () => {
   return (
@@ -17,7 +19,7 @@ const Footer = () => {
       >
         <MDBContainer className="pt-4">
           <section className="mb-4">
-            <MDBBtn
+            <Button
               rippleColor="dark"
               link
               floating
@@ -27,9 +29,9 @@ const Footer = () => {
               role="button"
             >
               <MDBIcon fab className="fab fa-facebook-f" />
-            </MDBBtn>
+            </Button>
 
-            <MDBBtn
+            <Button
               rippleColor="dark"
               link
               floating
@@ -39,9 +41,9 @@ const Footer = () => {
               role="button"
             >
               <MDBIcon fab className="fa-twitter" />
-            </MDBBtn>
+            </Button>
 
-            <MDBBtn
+            <Button
               rippleColor="dark"
               link
               floating
@@ -51,9 +53,9 @@ const Footer = () => {
               role="button"
             >
               <MDBIcon fab className="fa-google" />
-            </MDBBtn>
+            </Button>
 
-            <MDBBtn
+            <Button
               rippleColor="dark"
               link
               floating
@@ -63,9 +65,9 @@ const Footer = () => {
               role="button"
             >
               <MDBIcon fab className="fa-instagram" />
-            </MDBBtn>
+            </Button>
 
-            <MDBBtn
+            <Button
               rippleColor="dark"
               link
               floating
@@ -75,9 +77,9 @@ const Footer = () => {
               role="button"
             >
               <MDBIcon fab className="fa-linkedin" />
-            </MDBBtn>
+            </Button>
 
-            <MDBBtn
+            <Button
               rippleColor="dark"
               link
               floating
@@ -87,7 +89,7 @@ const Footer = () => {
               role="button"
             >
               <MDBIcon fab className="fa-github" />
-            </MDBBtn>
+            </Button>
           </section>
         </MDBContainer>
 
@@ -96,9 +98,9 @@ const Footer = () => {
           style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
         >
           © 2022 Copyright:
-          <a className="text-white" href="https://mdbootstrap.com/">
+          <Link className="text-dark" to="https://mdbootstrap.com/">
             educine.com
-          </a>
+          </Link>
         </div>
       </MDBFooter>
     </div>

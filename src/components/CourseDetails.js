@@ -24,13 +24,13 @@ const CourseDetails = () => {
     <div>
       <MDBCard ref={ref}>
         <MDBCardHeader className="d-flex justify-content-between">
-          <h3 className="text-success">{title}</h3>
+          <h3 className="text-primary">{title}</h3>
           <>
             <Pdf targetRef={ref} filename="code-example.pdf" options={options}>
               {({ toPdf }) => (
                 <button onClick={toPdf} className="border-0 fw-bold">
                   Download PDF
-                  <FaDownload className="fs-3 text-success" />
+                  <FaDownload className="fs-3 text-primary" />
                 </button>
               )}
             </Pdf>
@@ -43,8 +43,8 @@ const CourseDetails = () => {
               Advisor: {instructor.name}
             </MDBCardTitle>
             <div className="d-flex">
-              <p className="me-4 text-success">Total Seat: {total_seat}</p>
-              <p className="me-4 text-success">
+              <p className="me-4 text-primary">Total Seat: {total_seat}</p>
+              <p className="me-4 text-primary">
                 Course Duration: {instructor.course_duration}
               </p>
             </div>

@@ -15,7 +15,9 @@ const Courses = () => {
             <LeftSidebar></LeftSidebar>
           </Col>
           <Col lg="9">
-            <h3>Preview of Our Courses</h3>
+            <h3 className="text-center text-primary mt-3">
+              Preview of Our Courses
+            </h3>
             <MDBRow style={{ rowGap: 20 }}>
               {courses.map((course) => (
                 <ShortDetail key={course._id} course={course}></ShortDetail>

@@ -99,33 +99,33 @@ const Register = () => {
           className="mb-4"
           type="text"
           id="form3Example2"
-          label="Name"
           name="name"
           placeholder="Enter Your Full Name"
+          required
         />
         <MDBInput
           className="mb-4"
           type="text"
           id="form3Example2"
-          label="Photo URL"
           name="photoURL"
           placeholder="Enter Your Photo URL"
+          required
         />
         <MDBInput
           className="mb-4"
           type="email"
           id="form3Example3"
-          label="Email address"
           name="email"
           placeholder="Enter Your Email"
+          required
         />
         <MDBInput
           className="mb-4"
           type="password"
           id="form3Example4"
-          label="Password"
           name="password"
           placeholder="Enter Your Password"
+          required
         />
 
         <Button type="submit" className="mb-4 w-100" block>

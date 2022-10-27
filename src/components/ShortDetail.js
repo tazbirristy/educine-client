@@ -29,7 +29,7 @@ const ShortDetail = ({ course }) => {
                 details
               )}
             </MDBCardText>
-            <p className="mt-2 mb-2 text-warning">
+            <p className="mt-2 mb-2 text-primary">
               Course Duration: {instructor?.course_duration}
             </p>
             <button
@@ -40,7 +40,7 @@ const ShortDetail = ({ course }) => {
                 className="text-decoration-none text-white"
                 to={`/courses/${_id}`}
               >
-                ShowDetails
+                Course Details
               </Link>
             </button>
           </MDBCardBody>

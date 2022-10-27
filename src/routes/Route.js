@@ -10,6 +10,7 @@ import Login from "../components/Login";
 import Register from "../components/Register";
 import Main from "../layout/Main";
 import Faq from "./../components/Faq";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -45,7 +46,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/premium/:id",
-        element: <Checkout></Checkout>,
+        element: (
+          <PrivateRoute>
+            <Checkout></Checkout>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(
             `https://educine-server-tazbirristy.vercel.app/courses/${params.id}`
