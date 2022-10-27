@@ -3,6 +3,7 @@ import Blog from "../components/Blog";
 import Category from "../components/Category";
 import CourseDetails from "../components/CourseDetails";
 import Courses from "../components/Courses";
+import ErrorPage from "../components/ErrorPage";
 import Home from "../components/Home";
 import Login from "../components/Login";
 import Register from "../components/Register";
@@ -13,6 +14,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -35,6 +37,10 @@ export const router = createBrowserRouter([
       {
         path: "/courses/:id",
         element: <CourseDetails></CourseDetails>,
+        loader: ({ params }) =>
+          fetch(
+            `https://educine-server-tazbirristy.vercel.app/courses/${params.id}`
+          ),
       },
       {
         path: "/login",
