@@ -15,7 +15,7 @@ const Footer = () => {
     <div>
       <MDBFooter
         className="text-center text-white"
-        style={{ backgroundColor: "grey" }}
+        style={{ backgroundColor: "black" }}
       >
         <MDBContainer className="pt-4">
           <section className="mb-4">
@@ -97,8 +97,8 @@ const Footer = () => {
           className="text-center text-white p-3"
           style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
         >
-          © 2022 Copyright:
-          <Link className="text-dark" to="https://mdbootstrap.com/">
+          © 2022 Copyright: {""}
+          <Link className="text-white" to="https://mdbootstrap.com/">
             educine.com
           </Link>
         </div>

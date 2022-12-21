@@ -11,7 +11,7 @@
 7. After login from "Get Premium Access" user can avail purchase option.
 8. Toggle the navbar by clicking toggle color option.
 
-This Projects was created with the help of react-bootstrap, bootstrap, react-mdb, react-js, react router, react icons, firebase, react pdf, react hot toast, font-awesome.
+This Projects was created with the help of react-bootstrap, bootstrap, react-mdb, react-js, react router, aos, react icons, firebase, react pdf, react hot toast, font-awesome.
 
 ## Live Link
 

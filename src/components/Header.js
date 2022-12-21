@@ -29,7 +29,7 @@ const Header = () => {
     setnavToggle(!navToggle);
   };
   return (
-    <Navbar bg={`${navToggle === true ? "dark" : "primary"}`} expand="lg">
+    <Navbar bg={`${navToggle === true ? "primary" : "dark"}`} expand="lg">
       <Container>
         <Navbar.Brand>
           <Link to="/" className="text-white text-decoration-none fw-bolder">
@@ -94,7 +94,7 @@ const Header = () => {
             <button
               onClick={handleToggoleBtn}
               className={`border-0 rounded ms-4 text-white p-2 ${
-                navToggle === false ? "bg-dark" : "bg-primary"
+                navToggle === false ? "bg-primary" : "bg-dark"
               }`}
             >
               Toggle

@@ -18,7 +18,11 @@ const Courses = () => {
             <h3 className="text-center text-primary mt-3">
               Preview of Our Courses
             </h3>
-            <MDBRow style={{ rowGap: 20 }}>
+            <MDBRow
+              data-aos="zoom-in"
+              data-aos-duration="2000"
+              style={{ rowGap: 20 }}
+            >
               {courses.map((course) => (
                 <ShortDetail key={course._id} course={course}></ShortDetail>
               ))}
